@@ -67,6 +67,9 @@ public class AgenciaCD {
         source.close();
     }
     
-    
+    public void load(File persist) throws IOException, ClassNotFoundException {
+        ObjectInputStream input = new ObjectInputStream(new FileInputStream(persist));
+        agencias = (Collection) input.readObject();
+    }
     
 }
