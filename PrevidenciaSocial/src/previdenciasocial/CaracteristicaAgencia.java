@@ -7,8 +7,8 @@ package previdenciasocial;
 
 /**
  *
- * @author Avell B154 PLUS
+ * @author Usuario
  */
-public class AgenciaCD {
+public class CaracteristicaAgencia {
     
 }
