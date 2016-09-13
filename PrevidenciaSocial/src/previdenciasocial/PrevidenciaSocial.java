@@ -1,24 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package previdenciasocial;
 
-/**
- *
- * @author Usuario
- */
+import java.io.File;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class PrevidenciaSocial {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
-      System.out.println("\n Bem Vindo ao Sistema da Previdencia Social \n");
+        URL url;
         
-    }
-    
+        try{
+            
+           url = new URL("http://repositorio.dados.gov.br/pessoa-familia-sociedade/previdencia-social/UnidadesOrganicasINSS.csv");
+           AgenciaCD agen = new AgenciaCD();
+           agen.load(url);
+           System.out.println("Obtido da Web: " + agen.toString());
+           
+           File arq = new File("Agencias.ser");
+           agen.save(arq);
+           AgenciaCD AgenCD = new AgenciaCD();
+           AgenCD.load(arq);
+           System.out.println("Obtido Localmente: " + AgenCD.toString());
+        }
+        catch(Exception ex){
+            Logger.getLogger(PrevidenciaSocial.class.getName()).log(Level.SEVERE, null, ex);               
+        }        
+    }  
 }
+
 
