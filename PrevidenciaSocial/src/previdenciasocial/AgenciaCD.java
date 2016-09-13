@@ -69,4 +69,17 @@ public class AgenciaCD {
         agencias = (Collection) input.readObject();
     }
     
+     @Override
+    public String toString(){
+        String resposta = "Null";
+        if (agencias != null){
+            resposta = "[";
+            for (Agencia agencia : agencias){
+                resposta = resposta.concat(agencia.getCodigoUnidade() + "");
+            }
+            resposta = resposta.concat("]");
+        }
+        return resposta;
+    }
+    
 }
