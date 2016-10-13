@@ -25,10 +25,18 @@ import java.util.Collection;
 public class AgenciaCD {
     Collection<Agencia> agencias;
     
+    /**
+     *
+     */
     public AgenciaCD() {
         agencias = new ArrayList<>();
     }
     
+    /**
+     * 
+     * @param url
+     * @throws IOException
+     */
     public void load(URL url) throws IOException {
         Reader source = new InputStreamReader(url.openStream());
         CSVReader reader = new CSVReader(source, ',');
@@ -67,6 +75,12 @@ public class AgenciaCD {
         source.close();
     }
     
+    /**
+     *
+     * @param persist
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void load(File persist) throws IOException, ClassNotFoundException {
         ObjectInputStream input = new ObjectInputStream(new FileInputStream(persist));
         agencias = (Collection) input.readObject();
