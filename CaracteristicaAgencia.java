@@ -7,8 +7,8 @@ package previdenciasocial;
 
 /**
  *
- * @author Weslley Goveia
+ * @author Usuario
  */
-public class Municipio {
+public class CaracteristicaAgencia {
     
 }
