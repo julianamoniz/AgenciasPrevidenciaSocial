@@ -6,8 +6,7 @@
 package previdenciasocial;
 
 /**
- *
- * @author Usuario
+ Comente Caio
  */
 public class PrevidenciaSocial {
 
