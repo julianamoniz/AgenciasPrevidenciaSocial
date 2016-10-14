@@ -14,13 +14,28 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ *
+ * @author Juliana 
+ * @author Lorena
+ * @author Caio
+ * @author Weslley
+ */
 public class AgenciaCD {
     Collection<Agencia> agencias;
     
+    /**
+     * criação de um arrayList
+     */
     public AgenciaCD() {
         agencias = new ArrayList<>();
     }
     
+    /**
+     *
+     * @param url Variável URL que recebe url
+     * @throws IOException
+     */
     public void load(URL url) throws IOException {
         Reader source = new InputStreamReader(url.openStream());
         CSVReader reader = new CSVReader(source, ',');
@@ -58,18 +73,35 @@ public class AgenciaCD {
         reader.close();
         source.close();
     }
+
+    /**
+     *
+     * @param persist Variável file que recebe persit
+     * @throws IOException
+     */
     public void save(File persist) throws IOException {
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(persist));
             if(agencias != null){
                 output.writeObject(agencias);
             }
     }
+
+    /**
+     *
+     * @param persist Variável file que recebe persit
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void load(File persist) throws IOException, ClassNotFoundException {
         ObjectInputStream input = new ObjectInputStream(new FileInputStream(persist));
         agencias = (Collection) input.readObject();
     }
     
-     @Override
+    /**
+     *
+     * @return Retorna resposta
+     */
+    @Override
     public String toString(){
         String resposta = "Null";
         if (agencias != null){

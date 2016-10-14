@@ -6,8 +6,16 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Weslley
+ */
 public class PrevidenciaSocial {
 
+    /**
+     * 
+     * @param args Variável srting que recebe o argumento 
+     */
     public static void main(String[] args) {
         
         URL url;

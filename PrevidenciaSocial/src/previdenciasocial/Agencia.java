@@ -10,6 +10,7 @@ import java.io.Serializable;
 /**
  *
  * @author Lorena
+ * @author Caio
  */
 public class Agencia implements Serializable {
     
@@ -39,154 +40,403 @@ public class Agencia implements Serializable {
     private String horarioInicial;
     private String horarioFinal;
     
-        public void setCodigoUnidade(String codigoUnidade){
+    /**
+     *
+     * @param codigoUnidade Variável string que recebe codigo unidade 
+     */
+    public void setCodigoUnidade(String codigoUnidade){
                 this.codigoUnidade = codigoUnidade;    
         }
-        public void setCategoria (String categoria){
+
+    /**
+     *
+     * @param categoria Variável string que recebe categoria
+     */
+    public void setCategoria (String categoria){
             this.categoria = categoria;
         }
-        public void setDescriçãoCategoria(String descriçãoCategoria){
+
+    /**
+     *
+     * @param descriçãoCategoria Variável string que recebe descrição de categoria
+     */
+    public void setDescriçãoCategoria(String descriçãoCategoria){
                 this.descriçãoCategoria = descriçãoCategoria;    
         }
-        public void setNomeUnidade(String nomeUnidade) {
+
+    /**
+     *
+     * @param nomeUnidade Variável string que recebe nome unidade
+     */
+    public void setNomeUnidade(String nomeUnidade) {
                 this.nomeUnidade = nomeUnidade;
         }
-        public void setSiglaUnidade(String siglaUnidade) {
+
+    /**
+     *
+     * @param siglaUnidade Variável string que recebe sigla unidade
+     */
+    public void setSiglaUnidade(String siglaUnidade) {
                 this.siglaUnidade = siglaUnidade;
         }
-        public void setDataCriação(String dataCriação) {
+
+    /**
+     *
+     * @param dataCriação Variável string que recebe data de criação
+     */
+    public void setDataCriação(String dataCriação) {
                 this.dataCriação = dataCriação;
         }
-        public void setEndereço(String endereço) {
+
+    /**
+     *
+     * @param endereço Variável string que recebe endereço
+     */
+    public void setEndereço(String endereço) {
                 this.endereço = endereço;
         }
-        public void setComplemento(String complemento) {
+
+    /**
+     *
+     * @param complemento Variável string que recebe complemento
+     */ 
+    public void setComplemento(String complemento) {
                 this.complemento = complemento;
         }
-        public void setBairro(String bairro) {
+
+    /**
+     *
+     * @param bairro Variável string que recebe bairro
+     */
+    public void setBairro(String bairro) {
             this.bairro = bairro;   
         }
-        public void setCep(String cep) {
+
+    /**
+     *
+     * @param cep Variável string que recebe cep
+     */
+    public void setCep(String cep) {
             this.cep = cep;        
         }
-        public void setCodigoMunicipio(String codigoMunicipio) {
+
+    /**
+     *
+     * @param codigoMunicipio Variável string que recebe codigo munucipio
+     */
+    public void setCodigoMunicipio(String codigoMunicipio) {
             this.codigoMunicipio = codigoMunicipio;
         }
-        public void setNomeMunicipio(String nomeMunicipio) {
+
+    /**
+     *
+     * @param nomeMunicipio Variável string que recebe nome municipio
+     */
+    public void setNomeMunicipio(String nomeMunicipio) {
             this.nomeMunicipio = nomeMunicipio;
         }
-        public void setUf(String uf) {
+
+    /**
+     *
+     * @param uf Variável string que recebe UF
+     */
+    public void setUf(String uf) {
             this.uf = uf;
         }
-        public void setDdd(String ddd) {
+
+    /**
+     *
+     * @param ddd Variável string que recebe DDD
+     */
+    public void setDdd(String ddd) {
             this.ddd = ddd;        
         }
-        public void setTelefone(String telefone) {
+
+    /**
+     *
+     * @param telefone Variável string que recebe telefone
+     */
+    public void setTelefone(String telefone) {
             this.telefone = telefone;
         }
-        public void setRamal(String ramal) {
+
+    /**
+     *
+     * @param ramal Variável string que recebe ramal
+     */
+    public void setRamal(String ramal) {
             this.ramal = ramal;
         }
-        public void setFax(String fax) {
+
+    /**
+     *
+     * @param fax Variável string que recebe fax
+     */
+    public void setFax(String fax) {
             this.fax = fax;
         }
-        public void setEmail(String email) {
+
+    /**
+     *
+     * @param email Variável string que recebe email
+     */
+    public void setEmail(String email) {
             this.email = email;
         }
-        public void setPorte(String porte) {
+
+    /**
+     *
+     * @param porte Variável string que recebe porte
+     */
+    public void setPorte(String porte) {
             this.porte = porte;
         }
-        public void setCnpj(String cnpj) {
+
+    /**
+     *
+     * @param cnpj Variável string que recebe cnpj
+     */
+    public void setCnpj(String cnpj) {
             this.cnpj = cnpj;
         }
-        public void setUnidadeAtiva(String unidadeAtiva) {
+
+    /**
+     *
+     * @param unidadeAtiva Variável string que recebe unidade ativa
+     */
+    public void setUnidadeAtiva(String unidadeAtiva) {
             this.unidadeAtiva = unidadeAtiva;
         }
-        public void setSituaçãoUnidade(String situaçãoUnidade) {
+
+    /**
+     *
+     * @param situaçãoUnidade Variável string que recebe situação unidade 
+     */
+    public void setSituaçãoUnidade(String situaçãoUnidade) {
             this.situaçãoUnidade = situaçãoUnidade;
         }
-        public void setDescriçãoSituação(String descriçãoSituação) {
+
+    /**
+     *
+     * @param descriçãoSituação Variável string que recebe descrição de situação
+     */
+    public void setDescriçãoSituação(String descriçãoSituação) {
             this.descriçãoSituação = descriçãoSituação;
         }
-        public void setHorarioInicial(String horarioInicial) {
+
+    /**
+     *
+     * @param horarioInicial Variável string que recebe horário inicial
+     */
+    public void setHorarioInicial(String horarioInicial) {
            this.horarioInicial = horarioInicial;
         }
-        public void setHorarioFinal(String horarioFinal) {
+
+    /**
+     *
+     * @param horarioFinal Variável string que recebe horário final 
+     */
+    public void setHorarioFinal(String horarioFinal) {
            this.horarioFinal = horarioFinal;
         }
-        public String getCodigoUnidade(){
+
+    /**
+     *
+     * @return Retorna codigo unidade 
+     */
+    public String getCodigoUnidade(){
              return codigoUnidade;
         } 
-        public String getCategoria(){
+
+    /**
+     *
+     * @return Retorna categoria
+     */
+    public String getCategoria(){
             return categoria;
         }
-        public String getDescriçãoCategoria(){
+
+    /**
+     *
+     * @return Retorna descrição da categoria 
+     */
+    public String getDescriçãoCategoria(){
              return descriçãoCategoria;
         } 
-        public String getNomeUnidade(){
+
+    /**
+     *
+     * @return Retorna nome da unidade
+     */
+    public String getNomeUnidade(){
              return nomeUnidade;
          }
-        public String getSiglaUnidade() {
+
+    /**
+     *
+     * @return Retorna sigla da unidade
+     */
+    public String getSiglaUnidade() {
             return siglaUnidade;
         }
-        public String getDataCriação() {
+
+    /**
+     *
+     * @return Retorna data criação
+     */
+    public String getDataCriação() {
             return dataCriação;
         }
-        public String getEndereço() {
+
+    /**
+     *
+     * @return Retorna endereço
+     */
+    public String getEndereço() {
             return endereço;
         }
-        public String getComplemento() {
+
+    /**
+     *
+     * @return Retorna complemento
+     */
+    public String getComplemento() {
             return complemento;
         }
-        public String getBairro() {
+
+    /**
+     *
+     * @return Retorna bairro
+     */
+    public String getBairro() {
             return bairro;
         }
-        public String getCep() {
+
+    /**
+     *
+     * @return Retorna cep
+     */
+    public String getCep() {
             return cep;
         }
-        public String getCodigoMunicipio() {
+
+    /**
+     *
+     * @return Retorna codigo municipio
+     */
+    public String getCodigoMunicipio() {
             return codigoMunicipio;
         }
-        public String getNomeMunicipio() {
+
+    /**
+     *
+     * @return Retorna nome municipio
+     */
+    public String getNomeMunicipio() {
             return nomeMunicipio;
         }
-        public String getUf() {
+
+    /**
+     *
+     * @return Retorna UF
+     */
+    public String getUf() {
             return uf;
         }
-        public String getDdd() {
+
+    /**
+     *
+     * @return Retorna DDD
+     */
+    public String getDdd() {
             return ddd;
         }
-        public String getTelefone() {
+
+    /**
+     *
+     * @return Retorna telefone
+     */
+    public String getTelefone() {
             return telefone;
         }
-        public String getRamal() {
+
+    /**
+     *
+     * @return Retorna ramal
+     */
+    public String getRamal() {
             return ramal;
         }
-        public String getFax() {
+
+    /**
+     *
+     * @return Retorna fax
+     */
+    public String getFax() {
             return fax;
         }
-        public String getEmail() {
+
+    /**
+     *
+     * @return Retorna email 
+     */
+    public String getEmail() {
             return email;
         }
-        public String getPorte() {
+
+    /**
+     *
+     * @return Retorna porte da agencia
+     */
+    public String getPorte() {
             return porte;
         }
-        public String getCnpj() {
+
+    /**
+     *
+     * @return Retorna cnpj
+     */
+    public String getCnpj() {
             return cnpj;
         }
-        public String getUnidadeAtiva() {
+
+    /**
+     *
+     * @return Retorna unidade ativa
+     */
+    public String getUnidadeAtiva() {
             return unidadeAtiva;
         }
-        public String getSituaçãoUnidade() {
+
+    /**
+     *
+     * @return Retorna situação da unidade
+     */
+    public String getSituaçãoUnidade() {
             return situaçãoUnidade;
         }
-        public String getDescriçãoSituação() {
+
+    /**
+     *
+     * @return Retorna descrição da situação
+     */
+    public String getDescriçãoSituação() {
             return descriçãoSituação;
         }
-        public String getHorarioInicial() {
+
+    /**
+     *
+     * @return Retorna horario inicial
+     */
+    public String getHorarioInicial() {
             return horarioInicial;
         }
-        public String getHorarioFinal() {
+
+    /**
+     *
+     * @return Retorna o horario final
+     */
+    public String getHorarioFinal() {
             return horarioFinal;
         }
     
