@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package previdenciasocial;
 
 import com.opencsv.CSVReader;
@@ -18,25 +14,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- *
- * @author Usuario
- */
 public class AgenciaCD {
     Collection<Agencia> agencias;
     
-    /**
-     *
-     */
     public AgenciaCD() {
         agencias = new ArrayList<>();
     }
     
-    /**
-     * 
-     * @param url
-     * @throws IOException
-     */
     public void load(URL url) throws IOException {
         Reader source = new InputStreamReader(url.openStream());
         CSVReader reader = new CSVReader(source, ',');
@@ -74,16 +58,28 @@ public class AgenciaCD {
         reader.close();
         source.close();
     }
-    
-    /**
-     *
-     * @param persist
-     * @throws IOException
-     * @throws ClassNotFoundException
-     */
+    public void save(File persist) throws IOException {
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(persist));
+            if(agencias != null){
+                output.writeObject(agencias);
+            }
+    }
     public void load(File persist) throws IOException, ClassNotFoundException {
         ObjectInputStream input = new ObjectInputStream(new FileInputStream(persist));
         agencias = (Collection) input.readObject();
+    }
+    
+     @Override
+    public String toString(){
+        String resposta = "Null";
+        if (agencias != null){
+            resposta = "[";
+            for (Agencia agencia : agencias){
+                resposta = resposta.concat(agencia.getCodigoUnidade() + "");
+            }
+            resposta = resposta.concat("]");
+        }
+        return resposta;
     }
     
 }
