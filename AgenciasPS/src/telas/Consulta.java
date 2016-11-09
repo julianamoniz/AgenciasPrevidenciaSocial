@@ -247,7 +247,8 @@ public class Consulta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       // botao limpar
+        limpaNovo();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -318,4 +319,11 @@ public class Consulta extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
+    
+     // função do botão Limpar
+    private void limpaNovo() {
+        jTextField1.setText("");
+        jComboBox1.setSelectedItem(null);
+        jComboBox2.setSelectedItem(null);
+    }
 }
