@@ -6,6 +6,7 @@
 package agenciasps;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class AgenciasPS {
     
-    private String csvPath = "UnidadesOrganicasINSS.csv";
+   private String csvPath = "UnidadesOrganicasINSS.csv";
     private ConjuntoAgencias a;
     
    public AgenciasPS() {
@@ -27,6 +28,8 @@ public class AgenciasPS {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
         // TODO code application logic here
         AgenciasPS aps = new AgenciasPS();
         ArrayList<Agencia> agencias = aps.search();
