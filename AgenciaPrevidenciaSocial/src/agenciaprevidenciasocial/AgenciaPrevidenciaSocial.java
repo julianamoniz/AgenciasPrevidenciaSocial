@@ -10,7 +10,7 @@ import telas.TelaPrincipal;
 
 /**
  *
- * @author Juliana
+ * @author Usuario
  */
 public class AgenciaPrevidenciaSocial {
 

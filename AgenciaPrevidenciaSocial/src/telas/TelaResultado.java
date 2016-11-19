@@ -26,13 +26,14 @@ public class TelaResultado extends javax.swing.JFrame {
      * Creates new form TelaResultado
      */
     public TelaResultado() {
-        
+        //agencias = new ArrayList<>();
         initComponents();
         setLocationRelativeTo(null);
+        atualizar();
         setVisible(true);
     }
 
-    public void atualizar() {
+    private void atualizar() {
         agencias = agen.obtemDados();
         fillTable();
     }
@@ -221,7 +222,7 @@ public class TelaResultado extends javax.swing.JFrame {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
 
         pack();
