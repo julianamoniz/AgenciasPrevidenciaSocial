@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Usuario
+ * @author Juliana
  */
 public class AgenciasControle {
     
@@ -34,9 +34,7 @@ public class AgenciasControle {
         } catch (IOException ex) {
             Logger.getLogger(AgenciasControle.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        agencias = agenciasCD.getAgencia();
-
+    
         return agencias;
     }
 }

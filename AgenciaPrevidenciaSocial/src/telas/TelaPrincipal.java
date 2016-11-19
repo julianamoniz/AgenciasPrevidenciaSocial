@@ -5,17 +5,28 @@
  */
 package telas;
 
+import agenciaprevidenciasocial.Agencia;
+import agenciaprevidenciasocial.AgenciasControle;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Vector;
+
 /**
  *
- * @author Usuario
+ * @author Juliana
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+        private List<Agencia> agencias;
+
+        AgenciasControle agen = new AgenciasControle();
+        
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        inicializaJComboBox1();
         setLocationRelativeTo(null);
     }
 
@@ -86,9 +97,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Município");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Limpar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -250,12 +269,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        limpar();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         TelaResultado resultado = new TelaResultado();
         resultado.setVisible(true);
+        resultado.atualizar();
         this.setVisible(false);
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -264,6 +286,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        String uf = String.valueOf(jComboBox1.getSelectedItem());
+        inicializaJComboBox2(uf);
+
+        //List anos = inf.anos();
+        //Vector finais = new Vector(anos.subList(inferior, anos.size()));
+        //jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(teste));
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,4 +358,48 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
+
+    private void atualizar() {
+        agencias = agen.obtemDados();
+    }
+    
+    private void limpar() {
+        jTextField1.setText("");
+        jComboBox1.setSelectedItem(null);
+        jComboBox2.setSelectedItem(null);
+    }
+    
+    private void inicializaJComboBox1() {
+          
+       jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String [] {
+             "", "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG",
+             "PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"}));
+    }
+    
+    /**
+     * Inicializa os municipios de acordo com uf recebido pela JComboBox1
+     * @param uf 
+     */
+    private void inicializaJComboBox2(String uf) {
+        
+        atualizar();
+        System.out.println(uf);
+        Vector cidades = new Vector();
+        
+       for (int i=0; i < agencias.size(); i++){
+           
+          String newuf = agencias.get(i).getUf();
+
+          if(newuf.equalsIgnoreCase(uf)){
+              
+              String teste = agencias.get(i).getNomeMunicipio();
+              if (!cidades.contains(teste))
+                cidades.add(teste);
+           }
+       }
+        cidades.sort(Comparator.naturalOrder());
+        
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(cidades)); 
+    }
 }
+
