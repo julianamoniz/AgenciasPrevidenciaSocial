@@ -383,7 +383,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void inicializaJComboBox2(String uf) {
         
         atualizar();
-        System.out.println(uf);
         Vector cidades = new Vector();
         
        for (int i=0; i < agencias.size(); i++){
