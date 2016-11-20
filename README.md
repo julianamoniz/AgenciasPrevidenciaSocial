@@ -66,7 +66,7 @@ Agência da Previdência Social Parintins | APSPAR | R. Pedro Gonçalves | Raimu
 #### **Exemplo de Consulta Gráfica**
 * Consultar Agências do Estado do Amazonas (AM).
 
-![Alt Text](http://data.whicdn.com/images/254569484/large.png)
+![Alt Text](http://data.whicdn.com/images/267183587/large.png)
 
 
 
