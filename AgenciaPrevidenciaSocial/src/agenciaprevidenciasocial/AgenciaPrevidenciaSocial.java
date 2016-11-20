@@ -6,6 +6,7 @@
 package agenciaprevidenciasocial;
 
 
+import javafx.stage.Stage;
 import telas.TelaPrincipal;
 
 /**
@@ -22,6 +23,8 @@ public class AgenciaPrevidenciaSocial {
         
         TelaPrincipal telaPrincipal = new TelaPrincipal();
         telaPrincipal.setVisible(true);
+       
+       
 
     }  
 }

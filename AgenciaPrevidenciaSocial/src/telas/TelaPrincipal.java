@@ -7,9 +7,22 @@ package telas;
 
 import agenciaprevidenciasocial.Agencia;
 import agenciaprevidenciasocial.AgenciasControle;
+
+import agenciaprevidenciasocial.Unidades;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,6 +68,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
         label1 = new java.awt.Label();
         jLabel2 = new javax.swing.JLabel();
@@ -134,6 +148,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Gráfico");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -157,9 +178,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(215, 215, 215)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
@@ -169,13 +187,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)))))
+                                .addGap(14, 14, 14)
+                                .addComponent(jButton5))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -213,7 +235,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(95, 95, 95)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -302,6 +325,62 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+       
+        String uf = String.valueOf(jComboBox1.getSelectedItem());
+        if(!uf.isEmpty()){
+
+            JDialog janPl = new JDialog();
+            JFXPanel fxPanel = new JFXPanel();
+            janPl.add(fxPanel);
+            janPl.setSize(800,600);
+            janPl.setVisible(true);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                 initFX(fxPanel, uf);
+                }
+            }); 
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Selecione um UF");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    
+    private void initFX(JFXPanel panel, String uf) {
+
+        Unidades u = new Unidades();
+        Map<String, Integer> repeticao = new HashMap<String, Integer>();
+        
+        repeticao = u.unidadesPorCidade(uf);
+        
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        BarChart<String,Number> sc = new BarChart<>(xAxis,yAxis);
+        
+        sc.setTitle("Unidade de Atendimento por Cidade - "+ uf);      
+        
+        yAxis.setLabel("Unidades");
+        
+ 
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("Cidades");       
+
+        for (Map.Entry repeEntry : repeticao.entrySet()) {
+            String key = (String)repeEntry.getKey();
+            int value = (int)repeEntry.getValue();
+            
+            series1.getData().add(new XYChart.Data(key, value));
+            
+        }
+        sc.getData().addAll(series1);
+        Scene  scene  =  new  Scene(sc, 800,600);
+        panel.setScene(scene);
+    }
+        
+        
     /**
      * @param args the command line arguments
      */
@@ -342,6 +421,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -391,9 +471,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
           if(newuf.equalsIgnoreCase(uf)){
               
-              String teste = agencias.get(i).getNomeMunicipio();
-              if (!cidades.contains(teste))
-                cidades.add(teste);
+              String nomeMunicipio = agencias.get(i).getNomeMunicipio();
+              if (!cidades.contains(nomeMunicipio))
+                cidades.add(nomeMunicipio);
            }
        }
         cidades.sort(Comparator.naturalOrder());
