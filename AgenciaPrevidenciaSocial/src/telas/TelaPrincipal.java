@@ -335,6 +335,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             if (!municipio.isEmpty()){ //Se o municipio não for vazio, fazer consulta com ele
 
+                resultado.fillTable3(municipio);
                 //colocar fillTable3
             }
             else{ //Se for fazio, fazer consulta só por estado

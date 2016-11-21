@@ -88,7 +88,38 @@ public class TelaResultado extends javax.swing.JFrame {
         
         tableResultado.setModel(new DefaultTableModel(tableRows, columnNames));  
     }
+public void fillTable3(String cidade) {
+       
+       agencias = agen.obtemDados();
+        
+       int conta = 0;
+       Agencia agencia;
+       filtro = new ArrayList<>();
+  
+        for (int i = 0; i < agencias.size(); i++){
+            
+            String municipio = agencias.get(i).getNomeMunicipio();
+            
+            if (municipio.equalsIgnoreCase(cidade)){
+                conta++;
+                agencia = agencias.get(i);
+                filtro.add(agencia); 
+            }     
+        }
+        
+        String columnNames[] = new String[]{
+            "Unidade", "Endereço", "Bairro", "CEP", "Município", "UF", "DDD", "Telefone", "E-mail",   
+        };
 
+        Object[][] tableRows = new Object[this.filtro.size()][columnNames.length];
+        
+        for (int i = 0; i < conta; i++) {
+            
+            tableRows[i] = filtro.get(i).converte();  
+        }
+        
+        tableResultado.setModel(new DefaultTableModel(tableRows, columnNames));  
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
