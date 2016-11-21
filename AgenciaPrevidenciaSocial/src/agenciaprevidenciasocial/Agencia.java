@@ -443,18 +443,17 @@ public class Agencia implements Serializable {
 
     public Object[] converte() {
         
-        Object[] campo = new Object[10];
+        Object[] campo = new Object[9];
 
         campo[0] = this.siglaUnidade;
         campo[1] = this.endereço;
-        campo[2] = this.complemento;
-        campo[3] = this.bairro;
-        campo[4] = this.cep;
-        campo[5] = this.nomeMunicipio;
-        campo[6] = this.uf;
-        campo[7] = this.ddd;
-        campo[8] = this.telefone;
-        campo[9] = this.email;
+        campo[2] = this.bairro;
+        campo[3] = this.cep;
+        campo[4] = this.nomeMunicipio;
+        campo[5] = this.uf;
+        campo[6] = this.ddd;
+        campo[7] = this.telefone;
+        campo[8] = this.email;
 
         return campo;
     }
