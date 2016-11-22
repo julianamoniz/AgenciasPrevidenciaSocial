@@ -9,6 +9,8 @@ import agenciaprevidenciasocial.Agencia;
 import agenciaprevidenciasocial.AgenciasControle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -18,12 +20,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaResultado extends javax.swing.JFrame {
 
-    private List<Agencia> agencias;
-    
+    private List<Agencia> agencias; 
     private  List<Agencia> filtro;
-
     AgenciasControle agen = new AgenciasControle();
-
+    ResourceBundle uis;
     
     /**
      * Creates new form TelaResultado
@@ -31,6 +31,7 @@ public class TelaResultado extends javax.swing.JFrame {
     public TelaResultado() {
         
         initComponents();
+        setupStrings();
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -44,7 +45,9 @@ public class TelaResultado extends javax.swing.JFrame {
         agencias = agen.obtemDados();
         
         String columnNames[] = new String[]{
-            "Unidade", "Endereço", "Bairro", "CEP", "Município", "UF", "DDD", "Telefone", "E-mail",   
+            uis.getString("unidade"), uis.getString("endereco"), uis.getString("bairro"), uis.getString("cep"), uis.getString("municipio"),
+            uis.getString("uf"), uis.getString("ddd"), uis.getString("telefone"), uis.getString("email"),   
+   
         };
 
         Object[][] tableRows = new Object[this.agencias.size()][columnNames.length];
@@ -76,7 +79,9 @@ public class TelaResultado extends javax.swing.JFrame {
         }
         
         String columnNames[] = new String[]{
-            "Unidade", "Endereço", "Bairro", "CEP", "Município", "UF", "DDD", "Telefone", "E-mail",   
+            uis.getString("unidade"), uis.getString("endereco"), uis.getString("bairro"), uis.getString("cep"), uis.getString("municipio"),
+            uis.getString("uf"), uis.getString("ddd"), uis.getString("telefone"), uis.getString("email"),   
+  
         };
 
         Object[][] tableRows = new Object[this.filtro.size()][columnNames.length];
@@ -108,7 +113,9 @@ public void fillTable3(String cidade) {
         }
         
         String columnNames[] = new String[]{
-            "Unidade", "Endereço", "Bairro", "CEP", "Município", "UF", "DDD", "Telefone", "E-mail",   
+            uis.getString("unidade"), uis.getString("endereco"), uis.getString("bairro"), uis.getString("cep"), uis.getString("municipio"),
+            uis.getString("uf"), uis.getString("ddd"), uis.getString("telefone"), uis.getString("email"),   
+  
         };
 
         Object[][] tableRows = new Object[this.filtro.size()][columnNames.length];
@@ -356,4 +363,14 @@ public void fillTable3(String cidade) {
     private java.awt.Panel panel1;
     private javax.swing.JTable tableResultado;
     // End of variables declaration//GEN-END:variables
+
+    private void setupStrings() {
+	uis = ResourceBundle.getBundle("Resources.ui");
+	
+        jButton1.setText(uis.getString("btSair"));
+        jButton2.setText(uis.getString("btNovaCon"));
+        jLabel1.setText(uis.getString("titulo1"));
+        label1.setText(uis.getString("titulo2"));
+    }
+
 }

@@ -13,7 +13,9 @@ import java.awt.Color;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Vector;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -30,16 +32,17 @@ import javax.swing.JOptionPane;
  * @author Juliana
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    
         private List<Agencia> agencias;
-
         AgenciasControle agen = new AgenciasControle();
+        ResourceBundle uis;
         
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        setupStrings();
         inicializaJComboBox1();
         setLocationRelativeTo(null);
     }
@@ -305,7 +308,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             });
         }
         else{
-            JOptionPane.showMessageDialog(null, "Selecione um UF");
+            JOptionPane.showMessageDialog(null, uis.getString("mensagemGraf"));
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -345,7 +348,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else{
-            JOptionPane.showMessageDialog(null, "Selecione ao menos um filtro de pesquisa!");
+            JOptionPane.showMessageDialog(null, uis.getString("mesagemConsulta"));
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -382,13 +385,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         NumberAxis yAxis = new NumberAxis();
         BarChart<String,Number> sc = new BarChart<>(xAxis,yAxis);
         
-        sc.setTitle("Unidade de Atendimento por Cidade - "+ uf);      
-        
-        yAxis.setLabel("Unidades");
-        
- 
+        sc.setTitle(uis.getString("tituloGraf") + uf);
+        yAxis.setLabel(uis.getString("yTituloGraf"));
         XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Unidades Por Cidade");       
+        series1.setName(uis.getString("legendaGraf"));      
 
         for (Map.Entry repeEntry : repeticao.entrySet()) {
             String key = (String)repeEntry.getKey();
@@ -495,6 +495,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cidades.sort(Comparator.naturalOrder());
         
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(cidades)); 
+    }
+    
+    private void setupStrings() {
+	uis = ResourceBundle.getBundle("Resources.ui");
+
+	jButton4.setText(uis.getString("btConsultar1"));	
+	jButton2.setText(uis.getString("btConsultar2"));	
+	jButton5.setText(uis.getString("btGrafico"));
+        jButton1.setText(uis.getString("btLimpar"));
+        jButton3.setText(uis.getString("btSair"));
+        jLabel1.setText(uis.getString("titulo1"));
+        label1.setText(uis.getString("titulo2"));
+        jLabel3.setText(uis.getString("titulo3"));
+        jLabel5.setText(uis.getString("uf"));
+        jLabel6.setText(uis.getString("municipio"));
     }
 }
 
