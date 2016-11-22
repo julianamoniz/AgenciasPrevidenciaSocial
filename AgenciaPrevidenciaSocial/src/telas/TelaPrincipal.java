@@ -9,7 +9,6 @@ import agenciaprevidenciasocial.Agencia;
 import agenciaprevidenciasocial.AgenciasControle;
 
 import agenciaprevidenciasocial.Unidades;
-import java.awt.Color;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +29,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Juliana
+ * @author Lorena
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     
@@ -339,7 +339,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             if (!municipio.isEmpty()){ //Se o municipio não for vazio, fazer consulta com ele
 
                 resultado.fillTable3(municipio);
-                //colocar fillTable3
             }
             else{ //Se for fazio, fazer consulta só por estado
 
@@ -366,11 +365,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String uf = String.valueOf(jComboBox1.getSelectedItem());
         inicializaJComboBox2(uf);
-
-        //List anos = inf.anos();
-        //Vector finais = new Vector(anos.subList(inferior, anos.size()));
-        //jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(teste));
-
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     

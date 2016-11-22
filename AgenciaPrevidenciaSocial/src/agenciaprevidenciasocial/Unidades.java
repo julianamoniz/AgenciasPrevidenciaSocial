@@ -8,24 +8,21 @@ package agenciaprevidenciasocial;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  *
- * @author Usuario
+ * @author Juliana
  */
 public class Unidades {
     
     private List<Agencia> agencias;
     AgenciasControle agen = new AgenciasControle();
-     
     
-    private void atualizar() {
-        agencias = agen.obtemDados();
-    }
-    
+    /**
+     * @return retorna um map com cidades e seu respectivo numero de agencias
+     */
     public Map<String, Integer> unidadesPorCidade(String uf){
-        atualizar();
+        agencias = agen.obtemDados();
     
         Map<String, Integer> repeticao = new HashMap<String, Integer>();
         int qtd = 1;

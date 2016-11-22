@@ -16,7 +16,8 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author Juliana
+ * @author Lorena
  */
 public class TelaResultado extends javax.swing.JFrame {
 
@@ -93,7 +94,8 @@ public class TelaResultado extends javax.swing.JFrame {
         
         tableResultado.setModel(new DefaultTableModel(tableRows, columnNames));  
     }
-public void fillTable3(String cidade) {
+    
+    public void fillTable3(String cidade) {
        
        agencias = agen.obtemDados();
         
@@ -177,6 +179,11 @@ public void fillTable3(String cidade) {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableResultadoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableResultado);
 
         jButton1.setText("Sair");
@@ -314,6 +321,26 @@ public void fillTable3(String cidade) {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void tableResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableResultadoMouseClicked
+        // TODO add your handling code here:
+        TelaResultFormatado result = new TelaResultFormatado();
+        
+        int selecionada = tableResultado.getSelectedRow();
+        String uni = tableResultado.getValueAt(selecionada, 0).toString();
+        String endereco = tableResultado.getValueAt(selecionada, 1).toString();
+        String bairro = tableResultado.getValueAt(selecionada, 2).toString();
+        String cep = tableResultado.getValueAt(selecionada, 3).toString();
+        String municipio = tableResultado.getValueAt(selecionada, 4).toString();
+        String uf = tableResultado.getValueAt(selecionada, 5).toString();
+        String ddd = tableResultado.getValueAt(selecionada, 6).toString();
+        String fone = tableResultado.getValueAt(selecionada, 7).toString();
+        String email = tableResultado.getValueAt(selecionada, 8).toString();
+        
+        result.recebeDados(uni, endereco, bairro, cep, municipio, uf, ddd, fone, email);
+        
+        System.out.println("Linha selecionada: " + selecionada);   
+    }//GEN-LAST:event_tableResultadoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -372,5 +399,4 @@ public void fillTable3(String cidade) {
         jLabel1.setText(uis.getString("titulo1"));
         label1.setText(uis.getString("titulo2"));
     }
-
 }

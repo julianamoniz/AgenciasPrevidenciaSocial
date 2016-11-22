@@ -441,6 +441,10 @@ public class Agencia implements Serializable {
         }
     
 
+    /**
+     *
+     * @return Retorna um objeto contendo todos os campos convertidos
+     */
     public Object[] converte() {
         
         Object[] campo = new Object[9];
@@ -456,7 +460,6 @@ public class Agencia implements Serializable {
         campo[8] = this.email;
 
         return campo;
-    }
-    
+    }    
 }
 

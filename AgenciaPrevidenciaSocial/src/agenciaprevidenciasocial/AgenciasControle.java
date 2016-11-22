@@ -19,7 +19,10 @@ import java.util.logging.Logger;
 public class AgenciasControle {
     
     private List<Agencia> agencias;
-
+    
+    /**
+     * @return retorna uma lista de agências
+     */
     public List<Agencia> obtemDados() {
         
         AgenciaCD agenciasCD = new AgenciaCD();
