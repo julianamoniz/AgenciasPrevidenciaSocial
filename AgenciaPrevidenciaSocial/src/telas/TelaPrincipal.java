@@ -492,7 +492,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
     private void setupStrings() {
-	uis = ResourceBundle.getBundle("Resources.ui");
+	uis = ResourceBundle.getBundle("Resources.ui", Locale.US);
 
 	jButton4.setText(uis.getString("btConsultar1"));	
 	jButton2.setText(uis.getString("btConsultar2"));	
