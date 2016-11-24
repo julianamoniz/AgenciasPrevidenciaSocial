@@ -339,7 +339,7 @@ public class TelaResultFormatado extends javax.swing.JFrame {
     }
     
     private void setupStrings() {
-	uis = ResourceBundle.getBundle("Resources.ui");
+	uis = ResourceBundle.getBundle("Resources.ui", Locale.US);
 	
         jLabel2.setText(uis.getString("endereco2"));
         jLabel3.setText(uis.getString("bairro2"));
