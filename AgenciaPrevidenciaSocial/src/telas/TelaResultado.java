@@ -392,7 +392,7 @@ public class TelaResultado extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setupStrings() {
-	uis = ResourceBundle.getBundle("Resources.ui", Locale.US);
+	uis = ResourceBundle.getBundle("Resources.ui");
 	
         jButton1.setText(uis.getString("btSair"));
         jButton2.setText(uis.getString("btNovaCon"));
